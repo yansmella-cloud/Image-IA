@@ -1,0 +1,5 @@
+Librerías necesarias: 
+streamlit
+torch
+transformers
+Pillow
