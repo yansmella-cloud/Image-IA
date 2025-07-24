@@ -1,4 +1,3 @@
-Librerías necesarias: 
 streamlit
 torch
 transformers
