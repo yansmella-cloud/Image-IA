@@ -15,4 +15,4 @@ if uploaded_file and symptoms:
         # Simulación de resultado
         st.subheader("📄 Reporte Clínico Preliminar (simulado):")
         st.write("No se observan consolidaciones. Patrón bronquial aumentado. Posible proceso viral leve.")
-        st.caption("Este resultado es simulado mientras se habilita MedGemma.")
+        st.caption("Este resultado es una simulación mientras se integra el modelo real MedGemma.")
