@@ -1,7 +1,7 @@
 import streamlit as st
 from PIL import Image
 
-st.title("🧠 Asistente de Triaje con IA (Demo)")
+st.title("🧠 Asistente 2da opinión iamgenológica con IA")
 st.markdown("Este prototipo simula un análisis clínico a partir de una imagen médica + síntomas.")
 
 uploaded_file = st.file_uploader("📸 Sube una imagen médica", type=["png", "jpg", "jpeg"])
