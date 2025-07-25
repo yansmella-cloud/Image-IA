@@ -1,27 +1,18 @@
 import streamlit as st
 from PIL import Image
-import torch
-from transformers import MedGemmaProcessor, MedGemmaForConditionalGeneration
 
-@st.cache_resource
-def load_model():
-    processor = MedGemmaProcessor.from_pretrained("google/medgemma-7b")
-    model = MedGemmaForConditionalGeneration.from_pretrained("google/medgemma-7b", device_map="auto")
-    return processor, model
+st.title("🧠 Asistente de Triaje con IA (Demo)")
+st.markdown("Este prototipo simula un análisis clínico a partir de una imagen médica + síntomas.")
 
-st.title("🧠 MedGemma para Triaje Clínico")
-st.markdown("Asistente clínico preliminar basado en imagen médica + síntomas del paciente.")
-
-uploaded_file = st.file_uploader("📸 Sube una imagen médica (rayos X, etc)", type=["jpg", "jpeg", "png"])
+uploaded_file = st.file_uploader("📸 Sube una imagen médica", type=["png", "jpg", "jpeg"])
 symptoms = st.text_area("📝 Describe los síntomas del paciente")
 
 if uploaded_file and symptoms:
-    with st.spinner("Analizando..."):
-        processor, model = load_model()
-        image = Image.open(uploaded_file).convert("RGB")
-        inputs = processor(images=image, text=symptoms, return_tensors="pt").to(model.device)
-        output = model.generate(**inputs, max_new_tokens=128)
-        result = processor.batch_decode(output, skip_special_tokens=True)[0]
+    image = Image.open(uploaded_file)
+    st.image(image, caption="Imagen médica cargada", use_column_width=True)
 
-        st.success("✅ Reporte generado:")
-        st.write(result)
+    with st.spinner("Analizando con IA..."):
+        # Simulación de resultado
+        st.subheader("📄 Reporte Clínico Preliminar (simulado):")
+        st.write("No se observan consolidaciones. Patrón bronquial aumentado. Posible proceso viral leve.")
+        st.caption("Este resultado es simulado mientras se habilita MedGemma.")
