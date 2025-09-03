@@ -1,7 +1,7 @@
 import streamlit as st
 from PIL import Image
 
-st.title("🧠 Asistente 2da opinión iamgenológica con IA")
+st.title("🧠 Asistente 2da opinión imagenológica con IA")
 st.markdown("Este prototipo simula un análisis clínico a partir de una imagen médica + síntomas.")
 
 uploaded_file = st.file_uploader("📸 Sube una imagen médica", type=["png", "jpg", "jpeg"])
@@ -16,3 +16,4 @@ if uploaded_file and symptoms:
         st.subheader("📄 Reporte Clínico Preliminar (simulado):")
         st.write("No se observan consolidaciones. Patrón bronquial aumentado. Posible proceso viral leve.")
         st.caption("Este resultado es una simulación mientras se integra el modelo real MedGemma.")
+
